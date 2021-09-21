@@ -9,14 +9,14 @@ class UsersController < ApplicationController
 
         if @user.save
             session[:session_token] = @user.reset_session_token!
-            redirect_to user_url
+            redirect_to user_url(@user)
         else
             render :new
         end
     end
 
     def show
-        @user = User.find_by(email: params[:email])
+        @user = User.find_by(id: params[:id])
         render :show
     end
 
