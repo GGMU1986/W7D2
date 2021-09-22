@@ -7,15 +7,61 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <style>
+      body {
+        font-family: sans-serif;
+        background: violet;
+      }
+
+      h1 {
+        color: blue;
+        font-family: inherit;
+      }
+
+      h3{
+        font-family: inherit;  
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        background: black;
+        align-items: center;
+      }
+    
+    </style>
+
   </head>
 
   <body>
-    <form action="<%= session_url %>" method="POST">
-      <input type="hidden" name="_method" value="DELETE">
-      <%= auth_token %>
+    <header>
     
-      <input type="submit" value="Log Out!">
-    </form>
+      <h1>Music App</h1>
+      <div>
+        <% unless logged_in? %>
+          <form action="<%=new_user_url%>" method="get">
+            <%= auth_token %>
+
+            <input type="submit" value="Sign Up!">
+          </form>
+          <span>OR</span>
+          <form action="<%=new_session_url%>" method="get">
+            <%= auth_token %>
+
+            <input type="submit" value="Log In!">
+          </form>
+        <% else %>
+          <form action="<%= session_url %>" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <%= auth_token %>
+          
+            <input type="submit" value="Log Out!">
+          </form>
+        <% end %>
+      </div>
+    
+    </header>
 
     <%= yield %>
   </body>

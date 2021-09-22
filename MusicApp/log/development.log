@@ -919,3 +919,2735 @@ Processing by UsersController#new as HTML
 Completed 200 OK in 212ms (Views: 210.5ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/users/new" for ::1 at 2021-09-21 16:53:03 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 484ms (Views: 102.0ms | ActiveRecord: 351.8ms)
+
+
+Started DELETE "/session" for ::1 at 2021-09-21 16:53:12 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"wGH9dbUEX/2hBdx1yXGzDliSIB05SrLuAP0l3OfIod6yYLqGORIydaSF9THgW0DrWw8DDXqJmBx1oj8iI0I3pA=="}
+  [1m[36mUser Load (24.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:18
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 61ms (ActiveRecord: 34.1ms)
+
+
+Started GET "/session/new" for ::1 at 2021-09-21 16:53:12 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  [1m[36mUser Load (31.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered sessions/new.html.erb within layouts/application (35.6ms)
+Completed 200 OK in 135ms (Views: 103.0ms | ActiveRecord: 31.4ms)
+
+
+Started GET "/session/new" for ::1 at 2021-09-21 16:53:24 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  [1m[36mUser Load (60.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered sessions/new.html.erb within layouts/application (64.5ms)
+Completed 200 OK in 154ms (Views: 92.0ms | ActiveRecord: 60.8ms)
+
+
+Started GET "/users/new" for ::1 at 2021-09-21 16:57:18 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (76.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 279ms (Views: 199.8ms | ActiveRecord: 76.5ms)
+
+
+Started POST "/users" for ::1 at 2021-09-21 16:57:35 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"+2Tdmb+cJNC2K5s7mIsnDDJ04qo+9wBprsmtICqZSmWJZZpqM4pJWLOrsn+xodTpMenBun00Kpvblrfe7hPcHw==", "user"=>{"email"=>"thetruth@email.com", "password"=>"[FILTERED]"}}
+  [1m[35m (19.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "thetruth@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Exists (21.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "3lkHzx-a9sJNorDNYW8pAA"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Create (22.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "thetruth@email.com"], ["password_digest", "$2a$12$SlIZ08sWmO/QPiD98XMLtuFRTNj.PbsQHGO/M6jSURwJhH5J37W3."], ["session_token", "3lkHzx-a9sJNorDNYW8pAA"], ["created_at", "2021-09-21 20:57:36.420354"], ["updated_at", "2021-09-21 20:57:36.420354"]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[35m (45.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:10
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:22
+  [1m[36mUser Exists (69.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "thetruth@email.com"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22
+  [1m[36mUser Exists (19.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "YXK_if7C_ikc73wp-9TKIw"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22
+  [1m[36mUser Update (1.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "YXK_if7C_ikc73wp-9TKIw"], ["updated_at", "2021-09-21 20:57:36.591461"], ["id", 5]]
+  ↳ app/models/user.rb:22
+  [1m[35m (47.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:22
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 953ms (ActiveRecord: 248.2ms)
+
+
+Started GET "/users/5" for ::1 at 2021-09-21 16:57:36 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "YXK_if7C_ikc73wp-9TKIw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 127ms (Views: 105.1ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/users/1" for ::1 at 2021-09-21 16:57:46 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (22.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (25.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "YXK_if7C_ikc73wp-9TKIw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 156ms (Views: 105.3ms | ActiveRecord: 47.5ms)
+
+
+Started GET "/users/2" for ::1 at 2021-09-21 16:57:51 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (42.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (15.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "YXK_if7C_ikc73wp-9TKIw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 378ms (Views: 317.4ms | ActiveRecord: 57.2ms)
+
+
+Started GET "/users/3" for ::1 at 2021-09-21 16:58:00 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (17.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (21.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "YXK_if7C_ikc73wp-9TKIw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 301ms (Views: 258.9ms | ActiveRecord: 38.6ms)
+
+
+Started GET "/users/4" for ::1 at 2021-09-21 16:58:06 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (14.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (2.8ms)
+  [1m[36mUser Load (8.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "YXK_if7C_ikc73wp-9TKIw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 152ms (Views: 115.2ms | ActiveRecord: 22.2ms)
+
+
+Started DELETE "/session" for ::1 at 2021-09-21 16:58:15 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"i1lZwVU7DM595ALjtFkFY8c0ZCOWgTVKubKkcDBlShL5WB4y2S1hRnhkK6edc/aGxKlHM9VCH7jM7b6O9O/caA=="}
+  [1m[36mUser Load (25.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "YXK_if7C_ikc73wp-9TKIw"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:18
+  [1m[35m (48.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:22
+  [1m[36mUser Exists (19.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "thetruth@email.com"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22
+  [1m[36mUser Exists (47.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "upnH2j9IGqBIzV2dqE1fdg"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22
+  [1m[36mUser Update (1.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "upnH2j9IGqBIzV2dqE1fdg"], ["updated_at", "2021-09-21 20:58:15.839610"], ["id", 5]]
+  ↳ app/models/user.rb:22
+  [1m[35m (19.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:22
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 177ms (ActiveRecord: 161.7ms)
+
+
+Started GET "/session/new" for ::1 at 2021-09-21 16:58:15 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 130ms (Views: 127.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/session/new" for ::1 at 2021-09-21 17:15:11 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.5ms)
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 500 Internal Server Error in 2157ms (ActiveRecord: 75.9ms)
+
+
+
+NameError - undefined local variable or method `new_users_url' for #<#<Class:0x00007fc013a0c1b8>:0x00007fc00ea56c90>
+Did you mean?  new_user_url:
+  app/views/layouts/application.html.erb:14:in `_app_views_layouts_application_html_erb___3353798174714496533_70231433064580'
+  app/controllers/sessions_controller.rb:3:in `new'
+
+Started POST "/__better_errors/f2c00b2a70e9dc9e/variables" for ::1 at 2021-09-21 17:15:18 -0400
+Started GET "/session/new" for ::1 at 2021-09-21 17:16:05 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.6ms)
+  [1m[36mUser Load (66.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 228ms (Views: 160.3ms | ActiveRecord: 66.8ms)
+
+
+Started GET "/users/new?authenticity_token=Zsk8hDkl47ETKnkBGoC4Kc946pPnl6uLtKYGkJS2RbQUyHt3tTOOORaqUEUzqkvMzOXJg6RUgXnB%2BRxuUDzTzg%3D%3D" for ::1 at 2021-09-21 17:16:39 -0400
+Processing by UsersController#new as HTML
+  Parameters: {"authenticity_token"=>"Zsk8hDkl47ETKnkBGoC4Kc946pPnl6uLtKYGkJS2RbQUyHt3tTOOORaqUEUzqkvMzOXJg6RUgXnB+RxuUDzTzg=="}
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (66.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 181ms (Views: 113.6ms | ActiveRecord: 66.4ms)
+
+
+Started GET "/session/new?authenticity_token=fCnZGBOP0ANPUvnFdaGn3s0ZQKwGbbqCOZ1u8TLYNg4OKJ7rn5m9i0rS0IFci1Q7zoRjvEWukHBMwnQP9lKgdA%3D%3D" for ::1 at 2021-09-21 17:16:42 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"fCnZGBOP0ANPUvnFdaGn3s0ZQKwGbbqCOZ1u8TLYNg4OKJ7rn5m9i0rS0IFci1Q7zoRjvEWukHBMwnQP9lKgdA=="}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (16.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 174ms (Views: 155.4ms | ActiveRecord: 16.9ms)
+
+
+Started GET "/users/new?authenticity_token=4OOkYl%2Fj4C%2F1JhMZ0KrU%2FX3et2J%2Fsf45C9HjNQQDPbiS4uOR0%2FWNp%2FCmOl35gCcYfkOUcjxy1Mt%2BjvnLwImrwg%3D%3D" for ::1 at 2021-09-21 17:16:43 -0400
+Processing by UsersController#new as HTML
+  Parameters: {"authenticity_token"=>"4OOkYl/j4C/1JhMZ0KrU/X3et2J/sf45C9HjNQQDPbiS4uOR0/WNp/CmOl35gCcYfkOUcjxy1Mt+jvnLwImrwg=="}
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (7.9ms)
+  [1m[36mUser Load (45.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 294ms (Views: 245.1ms | ActiveRecord: 45.1ms)
+
+
+Started POST "/users" for ::1 at 2021-09-21 17:17:03 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"E0ip7squWUj+OufXScrQlBVQk4Xi6HCi+QkkokMPZEBhSe4dRrg0wPu6zpNg4CNxFs2wlaErWlCMVj5ch4XyOg==", "user"=>{"email"=>"Cathy@iscool.com", "password"=>"[FILTERED]"}}
+  [1m[35m (18.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Exists (95.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Cathy@iscool.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Exists (565.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "XkK1ZCIorwaClU7NCeFPzA"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Create (97.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "Cathy@iscool.com"], ["password_digest", "$2a$12$CTQbdFE/IkrYJoUewsvZ.eJ9dflhe4nR1jwCJn6ivXATQ7cCEbOpW"], ["session_token", "XkK1ZCIorwaClU7NCeFPzA"], ["created_at", "2021-09-21 21:17:05.374627"], ["updated_at", "2021-09-21 21:17:05.374627"]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[35m (143.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:10
+  [1m[35m (25.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:22
+  [1m[36mUser Exists (119.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Cathy@iscool.com"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22
+  [1m[36mUser Exists (22.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "RbgPBg3W6iEeiijQqUnjyg"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22
+  [1m[36mUser Update (70.7ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "RbgPBg3W6iEeiijQqUnjyg"], ["updated_at", "2021-09-21 21:17:05.797883"], ["id", 6]]
+  ↳ app/models/user.rb:22
+  [1m[35m (101.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:22
+Redirected to http://localhost:3000/users/6
+Completed 302 Found in 2376ms (ActiveRecord: 1261.2ms)
+
+
+Started GET "/users/6" for ::1 at 2021-09-21 17:17:05 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (25.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (5.7ms)
+  [1m[36mUser Load (24.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "RbgPBg3W6iEeiijQqUnjyg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 300ms (Views: 226.8ms | ActiveRecord: 49.6ms)
+
+
+Started DELETE "/session" for ::1 at 2021-09-21 17:17:11 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"cZjC7T5ljmMk4uOLqJsnuT9lnIIqCmRlBWw/7uJboucDmYUesnPj6yFiys+BsdRcPPi/kmnJTpdwMyUQJtE0nQ=="}
+  [1m[36mUser Load (32.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "RbgPBg3W6iEeiijQqUnjyg"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:18
+  [1m[35m (72.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:22
+  [1m[36mUser Exists (11.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Cathy@iscool.com"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22
+  [1m[36mUser Exists (32.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "Sfi8tuBDmxYjR2DSncNB6A"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22
+  [1m[36mUser Update (100.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "Sfi8tuBDmxYjR2DSncNB6A"], ["updated_at", "2021-09-21 21:17:11.571526"], ["id", 6]]
+  ↳ app/models/user.rb:22
+  [1m[35m (46.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:22
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 363ms (ActiveRecord: 294.8ms)
+
+
+Started GET "/session/new" for ::1 at 2021-09-21 17:17:11 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (14.2ms)
+  [1m[36mUser Load (8.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 541ms (Views: 519.4ms | ActiveRecord: 8.3ms)
+
+
+Started POST "/session" for ::1 at 2021-09-21 17:17:40 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"t0cKAAdpQIhTR200jvdYI/DOZHIJ0z2E2367yiL+fXrFRk3zi38tAFbHRHCn3avG81NHYkoQF3auIaE05nTrAA==", "user"=>{"email"=>"Cathy@iscool.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Cathy@iscool.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:45
+  [1m[35m (30.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:22
+  [1m[36mUser Exists (17.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Cathy@iscool.com"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22
+  [1m[36mUser Exists (49.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "6BL5atEX6H5AVxEWZ9LIjg"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22
+  [1m[36mUser Update (117.2ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "6BL5atEX6H5AVxEWZ9LIjg"], ["updated_at", "2021-09-21 21:17:41.949038"], ["id", 6]]
+  ↳ app/models/user.rb:22
+  [1m[35m (27.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:22
+Redirected to http://localhost:3000/users/6
+Completed 302 Found in 1102ms (ActiveRecord: 242.2ms)
+
+
+Started GET "/users/6" for ::1 at 2021-09-21 17:17:42 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (74.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (30.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "6BL5atEX6H5AVxEWZ9LIjg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 205ms (Views: 96.3ms | ActiveRecord: 104.2ms)
+
+
+Started DELETE "/session" for ::1 at 2021-09-21 17:24:16 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"5GOqrLbBJXpLBPNx8lE12sh8bZJuWCLSwwSu8zVLiJOWYu1fOtdI8k6E2jXbe8Y/y+FOgi2bCCC2W7QN8cEe6Q=="}
+  [1m[36mUser Load (49.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "6BL5atEX6H5AVxEWZ9LIjg"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:18
+  [1m[35m (44.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:22
+  [1m[36mUser Exists (46.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Cathy@iscool.com"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "zx6TTISAMYHtFQPCwlzjCA"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22
+  [1m[36mUser Update (16.8ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "zx6TTISAMYHtFQPCwlzjCA"], ["updated_at", "2021-09-21 21:24:17.752523"], ["id", 6]]
+  ↳ app/models/user.rb:22
+  [1m[35m (47.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:22
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 274ms (ActiveRecord: 223.3ms)
+
+
+Started GET "/session/new" for ::1 at 2021-09-21 17:24:17 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (22.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 195ms (Views: 170.8ms | ActiveRecord: 22.4ms)
+
+
+Started GET "/session/new" for ::1 at 2021-09-21 17:24:43 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.4ms)
+  [1m[36mUser Load (54.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 171ms (Views: 115.2ms | ActiveRecord: 54.6ms)
+
+
+Started GET "/session/new" for ::1 at 2021-09-21 17:24:50 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (13.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 126ms (Views: 111.2ms | ActiveRecord: 13.3ms)
+
+
+Started GET "/users/new?authenticity_token=BGNVJiNeSnxCbaWru5iygEctRMYynXuGGhmD8RPKC1t2YhLVr0gn9EftjO%2BSskFlRLBn1nFeUXRvRpkP10CdIQ%3D%3D" for ::1 at 2021-09-21 17:25:22 -0400
+Processing by UsersController#new as HTML
+  Parameters: {"authenticity_token"=>"BGNVJiNeSnxCbaWru5iygEctRMYynXuGGhmD8RPKC1t2YhLVr0gn9EftjO+SskFlRLBn1nFeUXRvRpkP10CdIQ=="}
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (15.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 124ms (Views: 107.4ms | ActiveRecord: 15.1ms)
+
+
+Started GET "/users/new?authenticity_token=BGNVJiNeSnxCbaWru5iygEctRMYynXuGGhmD8RPKC1t2YhLVr0gn9EftjO%2BSskFlRLBn1nFeUXRvRpkP10CdIQ%3D%3D" for ::1 at 2021-09-21 17:26:34 -0400
+Processing by UsersController#new as HTML
+  Parameters: {"authenticity_token"=>"BGNVJiNeSnxCbaWru5iygEctRMYynXuGGhmD8RPKC1t2YhLVr0gn9EftjO+SskFlRLBn1nFeUXRvRpkP10CdIQ=="}
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.7ms)
+  [1m[36mUser Load (62.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 293ms (Views: 228.7ms | ActiveRecord: 62.9ms)
+
+
+Started GET "/users/new?authenticity_token=BGNVJiNeSnxCbaWru5iygEctRMYynXuGGhmD8RPKC1t2YhLVr0gn9EftjO%2BSskFlRLBn1nFeUXRvRpkP10CdIQ%3D%3D" for ::1 at 2021-09-21 17:26:37 -0400
+Processing by UsersController#new as HTML
+  Parameters: {"authenticity_token"=>"BGNVJiNeSnxCbaWru5iygEctRMYynXuGGhmD8RPKC1t2YhLVr0gn9EftjO+SskFlRLBn1nFeUXRvRpkP10CdIQ=="}
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.2ms)
+  [1m[36mUser Load (10.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 133ms (Views: 119.3ms | ActiveRecord: 10.3ms)
+
+
+Started GET "/session/new?authenticity_token=zOoEd1X%2BBGnXfjFYJOilzfFedBjFo6JAwrJ7pjxxGc%2B%2B60OE2ehp4dL%2BGBwNwlYo8sNXCIZgiLK37WFY%2BPuPtQ%3D%3D" for ::1 at 2021-09-21 17:26:45 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"zOoEd1X+BGnXfjFYJOilzfFedBjFo6JAwrJ7pjxxGc++60OE2ehp4dL+GBwNwlYo8sNXCIZgiLK37WFY+PuPtQ=="}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (8.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 123ms (Views: 112.5ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/users/new?authenticity_token=Uqm9rV5nB0yo7wb71N1k6hUQbRYhzH89T0PGrsKpHr0gqPpe0nFqxK1vL7%2F995cPFo1OBmIPVc86HNxQBiOIxw%3D%3D" for ::1 at 2021-09-21 17:26:47 -0400
+Processing by UsersController#new as HTML
+  Parameters: {"authenticity_token"=>"Uqm9rV5nB0yo7wb71N1k6hUQbRYhzH89T0PGrsKpHr0gqPpe0nFqxK1vL7/995cPFo1OBmIPVc86HNxQBiOIxw=="}
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (12.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 149ms (Views: 134.2ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/session/new?authenticity_token=goVQKosaCopGu7xTWPX63HE8jWuG%2BB1cp0fBJfDRpW3whBfZBwxnAkM7lRdx3wk5cqGue8U7N67SGNvbNFszFw%3D%3D" for ::1 at 2021-09-21 17:26:48 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"goVQKosaCopGu7xTWPX63HE8jWuG+B1cp0fBJfDRpW3whBfZBwxnAkM7lRdx3wk5cqGue8U7N67SGNvbNFszFw=="}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (10.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 130ms (Views: 117.7ms | ActiveRecord: 10.8ms)
+
+
+Started GET "/users/new?authenticity_token=jYAB6S0x5TwxfpQaXLkq9RggAh%2FEtT6qy5wsfqIwRRP%2FgUYaoSeItDT%2BvV51k9kQG70hD4d2FFi%2BwzaAZrrTaQ%3D%3D" for ::1 at 2021-09-21 17:26:49 -0400
+Processing by UsersController#new as HTML
+  Parameters: {"authenticity_token"=>"jYAB6S0x5TwxfpQaXLkq9RggAh/EtT6qy5wsfqIwRRP/gUYaoSeItDT+vV51k9kQG70hD4d2FFi+wzaAZrrTaQ=="}
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.7ms)
+  [1m[36mUser Load (16.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 130ms (Views: 110.2ms | ActiveRecord: 16.9ms)
+
+
+Started GET "/users/new?authenticity_token=jYAB6S0x5TwxfpQaXLkq9RggAh%2FEtT6qy5wsfqIwRRP%2FgUYaoSeItDT%2BvV51k9kQG70hD4d2FFi%2BwzaAZrrTaQ%3D%3D" for ::1 at 2021-09-21 17:29:16 -0400
+Processing by UsersController#new as HTML
+  Parameters: {"authenticity_token"=>"jYAB6S0x5TwxfpQaXLkq9RggAh/EtT6qy5wsfqIwRRP/gUYaoSeItDT+vV51k9kQG70hD4d2FFi+wzaAZrrTaQ=="}
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.1ms)
+  [1m[36mUser Load (12.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 129ms (Views: 114.2ms | ActiveRecord: 12.7ms)
+
+
+Started GET "/users/new?authenticity_token=jYAB6S0x5TwxfpQaXLkq9RggAh%2FEtT6qy5wsfqIwRRP%2FgUYaoSeItDT%2BvV51k9kQG70hD4d2FFi%2BwzaAZrrTaQ%3D%3D" for ::1 at 2021-09-21 17:29:59 -0400
+Processing by UsersController#new as HTML
+  Parameters: {"authenticity_token"=>"jYAB6S0x5TwxfpQaXLkq9RggAh/EtT6qy5wsfqIwRRP/gUYaoSeItDT+vV51k9kQG70hD4d2FFi+wzaAZrrTaQ=="}
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (4.2ms)
+  [1m[36mUser Load (46.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 204ms (Views: 155.3ms | ActiveRecord: 46.0ms)
+
+
+Started GET "/users/new?authenticity_token=jYAB6S0x5TwxfpQaXLkq9RggAh%2FEtT6qy5wsfqIwRRP%2FgUYaoSeItDT%2BvV51k9kQG70hD4d2FFi%2BwzaAZrrTaQ%3D%3D" for ::1 at 2021-09-21 17:30:26 -0400
+Processing by UsersController#new as HTML
+  Parameters: {"authenticity_token"=>"jYAB6S0x5TwxfpQaXLkq9RggAh/EtT6qy5wsfqIwRRP/gUYaoSeItDT+vV51k9kQG70hD4d2FFi+wzaAZrrTaQ=="}
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (4.9ms)
+  [1m[36mUser Load (89.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 302ms (Views: 210.3ms | ActiveRecord: 89.7ms)
+
+
+Started GET "/users/new?authenticity_token=jYAB6S0x5TwxfpQaXLkq9RggAh%2FEtT6qy5wsfqIwRRP%2FgUYaoSeItDT%2BvV51k9kQG70hD4d2FFi%2BwzaAZrrTaQ%3D%3D" for ::1 at 2021-09-21 17:31:03 -0400
+Processing by UsersController#new as HTML
+  Parameters: {"authenticity_token"=>"jYAB6S0x5TwxfpQaXLkq9RggAh/EtT6qy5wsfqIwRRP/gUYaoSeItDT+vV51k9kQG70hD4d2FFi+wzaAZrrTaQ=="}
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (19.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 301ms (Views: 279.2ms | ActiveRecord: 19.6ms)
+
+
+Started GET "/users/new?authenticity_token=jYAB6S0x5TwxfpQaXLkq9RggAh%2FEtT6qy5wsfqIwRRP%2FgUYaoSeItDT%2BvV51k9kQG70hD4d2FFi%2BwzaAZrrTaQ%3D%3D" for ::1 at 2021-09-21 17:31:52 -0400
+Processing by UsersController#new as HTML
+  Parameters: {"authenticity_token"=>"jYAB6S0x5TwxfpQaXLkq9RggAh/EtT6qy5wsfqIwRRP/gUYaoSeItDT+vV51k9kQG70hD4d2FFi+wzaAZrrTaQ=="}
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.7ms)
+  [1m[36mUser Load (136.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 344ms (Views: 205.8ms | ActiveRecord: 136.3ms)
+
+
+Started GET "/users/new?authenticity_token=jYAB6S0x5TwxfpQaXLkq9RggAh%2FEtT6qy5wsfqIwRRP%2FgUYaoSeItDT%2BvV51k9kQG70hD4d2FFi%2BwzaAZrrTaQ%3D%3D" for ::1 at 2021-09-21 17:34:19 -0400
+Processing by UsersController#new as HTML
+  Parameters: {"authenticity_token"=>"jYAB6S0x5TwxfpQaXLkq9RggAh/EtT6qy5wsfqIwRRP/gUYaoSeItDT+vV51k9kQG70hD4d2FFi+wzaAZrrTaQ=="}
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (87.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 199ms (Views: 110.2ms | ActiveRecord: 87.7ms)
+
+
+Started GET "/users/new?authenticity_token=jYAB6S0x5TwxfpQaXLkq9RggAh%2FEtT6qy5wsfqIwRRP%2FgUYaoSeItDT%2BvV51k9kQG70hD4d2FFi%2BwzaAZrrTaQ%3D%3D" for ::1 at 2021-09-21 17:34:51 -0400
+Processing by UsersController#new as HTML
+  Parameters: {"authenticity_token"=>"jYAB6S0x5TwxfpQaXLkq9RggAh/EtT6qy5wsfqIwRRP/gUYaoSeItDT+vV51k9kQG70hD4d2FFi+wzaAZrrTaQ=="}
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (157.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 401ms (Views: 241.3ms | ActiveRecord: 157.1ms)
+
+
+Started GET "/users/new?authenticity_token=jYAB6S0x5TwxfpQaXLkq9RggAh%2FEtT6qy5wsfqIwRRP%2FgUYaoSeItDT%2BvV51k9kQG70hD4d2FFi%2BwzaAZrrTaQ%3D%3D" for ::1 at 2021-09-21 17:36:39 -0400
+Processing by UsersController#new as HTML
+  Parameters: {"authenticity_token"=>"jYAB6S0x5TwxfpQaXLkq9RggAh/EtT6qy5wsfqIwRRP/gUYaoSeItDT+vV51k9kQG70hD4d2FFi+wzaAZrrTaQ=="}
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (387.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 547ms (Views: 156.6ms | ActiveRecord: 387.6ms)
+
+
+Started GET "/users/new?authenticity_token=jYAB6S0x5TwxfpQaXLkq9RggAh%2FEtT6qy5wsfqIwRRP%2FgUYaoSeItDT%2BvV51k9kQG70hD4d2FFi%2BwzaAZrrTaQ%3D%3D" for ::1 at 2021-09-21 19:11:14 -0400
+Processing by UsersController#new as HTML
+  Parameters: {"authenticity_token"=>"jYAB6S0x5TwxfpQaXLkq9RggAh/EtT6qy5wsfqIwRRP/gUYaoSeItDT+vV51k9kQG70hD4d2FFi+wzaAZrrTaQ=="}
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 85ms (Views: 53.6ms | ActiveRecord: 25.9ms)
+
+
+Started GET "/users/new?authenticity_token=jYAB6S0x5TwxfpQaXLkq9RggAh%2FEtT6qy5wsfqIwRRP%2FgUYaoSeItDT%2BvV51k9kQG70hD4d2FFi%2BwzaAZrrTaQ%3D%3D" for ::1 at 2021-09-21 19:11:31 -0400
+Processing by UsersController#new as HTML
+  Parameters: {"authenticity_token"=>"jYAB6S0x5TwxfpQaXLkq9RggAh/EtT6qy5wsfqIwRRP/gUYaoSeItDT+vV51k9kQG70hD4d2FFi+wzaAZrrTaQ=="}
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (15.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 49ms (Views: 32.9ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/session/new?authenticity_token=fmtM42NtEcqteX%2FYo4%2F%2BF9WSurcKwBQUsXEgcd6u%2BCUMagsQ73t8Qqj5VpyKpQ3y1g%2BZp0kDPubELjqPGiRuXw%3D%3D" for ::1 at 2021-09-21 19:12:07 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"fmtM42NtEcqteX/Yo4/+F9WSurcKwBQUsXEgcd6u+CUMagsQ73t8Qqj5VpyKpQ3y1g+Zp0kDPubELjqPGiRuXw=="}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 44ms (Views: 42.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/new?authenticity_token=aH410HlHCyGqOKV2ZqtNM%2FHmNnzlJjlaeeuq4A1TMCoaf3Ij9VFmqa%2B4jDJPgb7W8nsVbKblE6gMtLAeydmmUA%3D%3D" for ::1 at 2021-09-21 19:12:11 -0400
+Processing by UsersController#new as HTML
+  Parameters: {"authenticity_token"=>"aH410HlHCyGqOKV2ZqtNM/HmNnzlJjlaeeuq4A1TMCoaf3Ij9VFmqa+4jDJPgb7W8nsVbKblE6gMtLAeydmmUA=="}
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 39ms (Views: 37.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/session/new?authenticity_token=dxt5X82fPUwrxlMIcip%2FyWUxxobjkItzpQ6JAA1yrIwFGj6sQYlQxC5GekxbAIwsZqzllqBToYHQUZP%2Byfg69g%3D%3D" for ::1 at 2021-09-21 19:12:12 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"dxt5X82fPUwrxlMIcip/yWUxxobjkItzpQ6JAA1yrIwFGj6sQYlQxC5GekxbAIwsZqzllqBToYHQUZP+yfg69g=="}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (9.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 45ms (Views: 33.9ms | ActiveRecord: 9.9ms)
+
+
+Started GET "/session/new?authenticity_token=dxt5X82fPUwrxlMIcip%2FyWUxxobjkItzpQ6JAA1yrIwFGj6sQYlQxC5GekxbAIwsZqzllqBToYHQUZP%2Byfg69g%3D%3D" for ::1 at 2021-09-21 19:12:38 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"dxt5X82fPUwrxlMIcip/yWUxxobjkItzpQ6JAA1yrIwFGj6sQYlQxC5GekxbAIwsZqzllqBToYHQUZP+yfg69g=="}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 50ms (Views: 47.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/session/new?authenticity_token=dxt5X82fPUwrxlMIcip%2FyWUxxobjkItzpQ6JAA1yrIwFGj6sQYlQxC5GekxbAIwsZqzllqBToYHQUZP%2Byfg69g%3D%3D" for ::1 at 2021-09-21 19:12:59 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"dxt5X82fPUwrxlMIcip/yWUxxobjkItzpQ6JAA1yrIwFGj6sQYlQxC5GekxbAIwsZqzllqBToYHQUZP+yfg69g=="}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 48ms (Views: 40.6ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/session/new?authenticity_token=dxt5X82fPUwrxlMIcip%2FyWUxxobjkItzpQ6JAA1yrIwFGj6sQYlQxC5GekxbAIwsZqzllqBToYHQUZP%2Byfg69g%3D%3D" for ::1 at 2021-09-21 19:13:11 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"dxt5X82fPUwrxlMIcip/yWUxxobjkItzpQ6JAA1yrIwFGj6sQYlQxC5GekxbAIwsZqzllqBToYHQUZP+yfg69g=="}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 43ms (Views: 41.6ms | ActiveRecord: 1.1ms)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1555902080779534005)[0m
+  ↳ bin/rails:9
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateBands (20210921231558)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (44.5ms)[0m  [1m[35mCREATE TABLE "bands" ("id" bigserial primary key, "name" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210921231558_create_bands.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210921231558"]]
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(1555902080779534005)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/users/new" for ::1 at 2021-09-21 19:33:42 -0400
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mpoumpou/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 128ms (Views: 28.9ms | ActiveRecord: 81.8ms)
+
+
+Started GET "/bands/new" for ::1 at 2021-09-21 19:34:29 -0400
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mpoumpou/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/new.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 293ms (Views: 282.2ms | ActiveRecord: 6.0ms)
+
+
+Started POST "/bands" for ::1 at 2021-09-21 19:34:43 -0400
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"C1Z51jeko389zPlAgTv5MxJa6zmESqI4jYn30V2bzHh5Vz4lu7LO9zhM0ASoEQrWEcfIKceJiMr41u0vmRFaAg==", "name"=>"Nirvana"}
+Completed 400 Bad Request in 5ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: band:
+  app/controllers/bands_controller.rb:23:in `band_params'
+  app/controllers/bands_controller.rb:11:in `create'
+
+Started POST "/__better_errors/5656eba128dd4b21/variables" for ::1 at 2021-09-21 19:34:44 -0400
+Started POST "/__better_errors/5656eba128dd4b21/eval" for ::1 at 2021-09-21 19:35:05 -0400
+Started POST "/bands" for ::1 at 2021-09-21 19:35:36 -0400
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"C1Z51jeko389zPlAgTv5MxJa6zmESqI4jYn30V2bzHh5Vz4lu7LO9zhM0ASoEQrWEcfIKceJiMr41u0vmRFaAg==", "name"=>"Nirvana"}
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: band:
+  app/controllers/bands_controller.rb:23:in `band_params'
+  app/controllers/bands_controller.rb:11:in `create'
+
+Started POST "/__better_errors/024bab8d555e6575/variables" for ::1 at 2021-09-21 19:35:36 -0400
+Started GET "/bands/new" for ::1 at 2021-09-21 19:36:04 -0400
+  [1m[35m (21.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mpoumpou/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/new.html.erb within layouts/application (2.8ms)
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 474ms (Views: 416.0ms | ActiveRecord: 47.3ms)
+
+
+Started POST "/bands" for ::1 at 2021-09-21 19:36:09 -0400
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"oF7rlSnfWBwhZkueKGfMHdHqJ2B336GIh/9IhgEZNP7SX6xmpck1lCTmYtoBTT/40ncEcDQci3ryoFJ4xZOihA==", "band"=>{"name"=>"Nirvana"}}
+  [1m[35m (12.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:13
+  [1m[36mBand Create (3.5ms)[0m  [1m[32mINSERT INTO "bands" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Nirvana"], ["created_at", "2021-09-21 23:36:09.512617"], ["updated_at", "2021-09-21 23:36:09.512617"]]
+  ↳ app/controllers/bands_controller.rb:13
+  [1m[35m (19.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:13
+Completed 500 Internal Server Error in 126ms (ActiveRecord: 105.6ms)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"show", :controller=>"bands"}, missing required keys: [:id]:
+  app/controllers/bands_controller.rb:14:in `create'
+
+Started POST "/__better_errors/301718fa5036315b/variables" for ::1 at 2021-09-21 19:36:09 -0400
+Started POST "/bands" for ::1 at 2021-09-21 19:36:26 -0400
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"oF7rlSnfWBwhZkueKGfMHdHqJ2B336GIh/9IhgEZNP7SX6xmpck1lCTmYtoBTT/40ncEcDQci3ryoFJ4xZOihA==", "band"=>{"name"=>"Nirvana"}}
+  [1m[35m (22.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:13
+  [1m[36mBand Create (0.7ms)[0m  [1m[32mINSERT INTO "bands" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Nirvana"], ["created_at", "2021-09-21 23:36:26.740064"], ["updated_at", "2021-09-21 23:36:26.740064"]]
+  ↳ app/controllers/bands_controller.rb:13
+  [1m[35m (19.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:13
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 42.5ms)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"show", :controller=>"bands"}, missing required keys: [:id]:
+  app/controllers/bands_controller.rb:14:in `create'
+
+Started POST "/__better_errors/ecf7d56815f3f883/variables" for ::1 at 2021-09-21 19:36:26 -0400
+Started POST "/bands" for ::1 at 2021-09-21 19:36:55 -0400
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"oF7rlSnfWBwhZkueKGfMHdHqJ2B336GIh/9IhgEZNP7SX6xmpck1lCTmYtoBTT/40ncEcDQci3ryoFJ4xZOihA==", "band"=>{"name"=>"Nirvana"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:13
+  [1m[36mBand Create (18.4ms)[0m  [1m[32mINSERT INTO "bands" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Nirvana"], ["created_at", "2021-09-21 23:36:55.817952"], ["updated_at", "2021-09-21 23:36:55.817952"]]
+  ↳ app/controllers/bands_controller.rb:13
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:13
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 20.3ms)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"show", :controller=>"bands"}, missing required keys: [:id]:
+  app/controllers/bands_controller.rb:14:in `create'
+
+Started POST "/__better_errors/213a701c41c9e770/variables" for ::1 at 2021-09-21 19:36:55 -0400
+Started POST "/bands" for ::1 at 2021-09-21 19:37:28 -0400
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"oF7rlSnfWBwhZkueKGfMHdHqJ2B336GIh/9IhgEZNP7SX6xmpck1lCTmYtoBTT/40ncEcDQci3ryoFJ4xZOihA==", "band"=>{"name"=>"Nirvana"}}
+  [1m[35m (10.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:14
+  [1m[36mBand Create (0.7ms)[0m  [1m[32mINSERT INTO "bands" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Nirvana"], ["created_at", "2021-09-21 23:37:29.163963"], ["updated_at", "2021-09-21 23:37:29.163963"]]
+  ↳ app/controllers/bands_controller.rb:14
+  [1m[35m (20.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:14
+Completed 500 Internal Server Error in 128ms (ActiveRecord: 102.7ms)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"show", :controller=>"bands"}, missing required keys: [:id]:
+  app/controllers/bands_controller.rb:15:in `create'
+
+Started POST "/__better_errors/7db1baab5c8bfd0a/variables" for ::1 at 2021-09-21 19:37:29 -0400
+Started POST "/bands" for ::1 at 2021-09-21 19:38:29 -0400
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"oF7rlSnfWBwhZkueKGfMHdHqJ2B336GIh/9IhgEZNP7SX6xmpck1lCTmYtoBTT/40ncEcDQci3ryoFJ4xZOihA==", "band"=>{"name"=>"Nirvana"}}
+  [1m[35m (14.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:14
+  [1m[36mBand Create (53.4ms)[0m  [1m[32mINSERT INTO "bands" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Nirvana"], ["created_at", "2021-09-21 23:38:29.241992"], ["updated_at", "2021-09-21 23:38:29.241992"]]
+  ↳ app/controllers/bands_controller.rb:14
+  [1m[35m (17.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:14
+Redirected to http://localhost:3000/bands/5
+Completed 302 Found in 156ms (ActiveRecord: 137.2ms)
+
+
+Started GET "/bands/5" for ::1 at 2021-09-21 19:38:29 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"5"}
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (43.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 138ms (Views: 62.1ms | ActiveRecord: 66.6ms)
+
+
+Started GET "/bands/5" for ::1 at 2021-09-21 19:38:58 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"5"}
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (16.9ms)
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `name' for nil:NilClass:
+  app/views/bands/show.html.erb:4:in `_app_views_bands_show_html_erb___2333169240216036244_70219124589880'
+
+Started POST "/__better_errors/8b56cf9fa4a947e3/variables" for ::1 at 2021-09-21 19:38:58 -0400
+Started GET "/bands/5" for ::1 at 2021-09-21 19:39:29 -0400
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mpoumpou/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"5"}
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (21.5ms)
+Completed 500 Internal Server Error in 79ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `name' for nil:NilClass:
+  app/views/bands/show.html.erb:4:in `_app_views_bands_show_html_erb__433235107525308626_70176555551620'
+
+Started POST "/__better_errors/1c28a9bc17d336b6/variables" for ::1 at 2021-09-21 19:39:30 -0400
+Started POST "/__better_errors/1c28a9bc17d336b6/eval" for ::1 at 2021-09-21 19:40:06 -0400
+Started GET "/bands/5" for ::1 at 2021-09-21 19:41:21 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"5"}
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (13.5ms)
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `name' for nil:NilClass:
+  app/views/bands/show.html.erb:2:in `_app_views_bands_show_html_erb__433235107525308626_70176599210140'
+
+Started POST "/__better_errors/19ce6bec3f66c3d7/variables" for ::1 at 2021-09-21 19:41:21 -0400
+Started GET "/users/new" for ::1 at 2021-09-21 19:47:27 -0400
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mpoumpou/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 464ms (Views: 382.9ms | ActiveRecord: 52.4ms)
+
+
+Started GET "/bands/5" for ::1 at 2021-09-21 19:47:32 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"5"}
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (8.0ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `name' for nil:NilClass:
+  app/views/bands/show.html.erb:2:in `_app_views_bands_show_html_erb___1726537651728731140_70362448121300'
+
+Started POST "/__better_errors/6b4f670321b8a8e7/variables" for ::1 at 2021-09-21 19:47:32 -0400
+Started GET "/bands/5" for ::1 at 2021-09-21 19:48:02 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"5"}
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (14.4ms)
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `name' for nil:NilClass:
+  app/views/bands/show.html.erb:2:in `_app_views_bands_show_html_erb___1726537651728731140_70362463435340'
+
+Started POST "/__better_errors/ec2cf24c91459f97/variables" for ::1 at 2021-09-21 19:48:03 -0400
+Started GET "/bands/5" for ::1 at 2021-09-21 19:58:55 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"5"}
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (26.9ms)
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `name' for nil:NilClass:
+  app/views/bands/show.html.erb:2:in `_app_views_bands_show_html_erb___1726537651728731140_70362459257780'
+
+Started POST "/__better_errors/32545494e659b84b/variables" for ::1 at 2021-09-21 19:58:56 -0400
+Started POST "/__better_errors/32545494e659b84b/eval" for ::1 at 2021-09-21 19:59:35 -0400
+Started GET "/bands/5" for ::1 at 2021-09-21 20:00:41 -0400
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mpoumpou/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"5"}
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (13.8ms)
+Completed 500 Internal Server Error in 67ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `name' for nil:NilClass:
+  app/views/bands/show.html.erb:2:in `_app_views_bands_show_html_erb___1773944781341153695_70196218727860'
+
+Started POST "/__better_errors/496a2fb6d2270275/variables" for ::1 at 2021-09-21 20:00:42 -0400
+Started GET "/bands/5" for ::1 at 2021-09-21 20:01:47 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"5"}
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 525ms (Views: 479.1ms | ActiveRecord: 39.4ms)
+
+
+Started GET "/bands/5" for ::1 at 2021-09-21 20:02:07 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"5"}
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 76ms (Views: 65.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/bands/5" for ::1 at 2021-09-21 20:02:24 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"5"}
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 52ms (Views: 41.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/bands/5" for ::1 at 2021-09-21 20:02:27 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"5"}
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (10.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 38ms (Views: 23.9ms | ActiveRecord: 10.8ms)
+
+
+Started GET "/bands/5" for ::1 at 2021-09-21 20:13:10 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"5"}
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (5.6ms)
+  [1m[36mUser Load (27.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 272ms (Views: 173.0ms | ActiveRecord: 28.4ms)
+
+
+Started GET "/bands/5" for ::1 at 2021-09-21 20:13:33 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"5"}
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (17.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 206ms (Views: 173.2ms | ActiveRecord: 17.0ms)
+
+
+Started GET "/bands/5" for ::1 at 2021-09-21 20:18:54 -0400
+Started GET "/bands/5" for ::1 at 2021-09-21 20:18:58 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"5"}
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (251.5ms)
+Completed 500 Internal Server Error in 340ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `name' for nil:NilClass:
+  app/views/bands/show.html.erb:2:in `_app_views_bands_show_html_erb___1773944781341153695_70196284508040'
+
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"5"}
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (26.3ms)
+Completed 500 Internal Server Error in 95ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `name' for nil:NilClass:
+  app/views/bands/show.html.erb:2:in `_app_views_bands_show_html_erb___1773944781341153695_70196284508040'
+
+Started POST "/__better_errors/52a48110a702f889/variables" for ::1 at 2021-09-21 20:19:06 -0400
+Started GET "/bands/5" for ::1 at 2021-09-21 20:23:18 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBand Load (1.7ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:21
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 284ms (Views: 75.4ms | ActiveRecord: 180.1ms)
+
+
+Started GET "/bands/new" for ::1 at 2021-09-21 20:25:59 -0400
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/new.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (12.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 48ms (Views: 35.0ms | ActiveRecord: 12.8ms)
+
+
+Started POST "/bands" for ::1 at 2021-09-21 20:26:22 -0400
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"uLqfZbnuYv6Ia7uRpusUD0F/fTZNQQMay3szIN7lBH/Ku9iWNfgPdo3rktWPwefqQuJeJg6CKei+JCneGm+SBQ==", "band"=>{"name"=>"Coldplay"}}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:13
+  [1m[36mBand Create (1.3ms)[0m  [1m[32mINSERT INTO "bands" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Coldplay"], ["created_at", "2021-09-22 00:26:22.354564"], ["updated_at", "2021-09-22 00:26:22.354564"]]
+  ↳ app/controllers/bands_controller.rb:13
+  [1m[35m (29.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:13
+Redirected to http://localhost:3000/bands/6
+Completed 302 Found in 39ms (ActiveRecord: 31.5ms)
+
+
+Started GET "/bands/6" for ::1 at 2021-09-21 20:26:22 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:21
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 37ms (Views: 32.7ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/bands/" for ::1 at 2021-09-21 20:28:10 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (12.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (29.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 90ms (Views: 42.1ms | ActiveRecord: 43.7ms)
+
+
+Started GET "/bands/" for ::1 at 2021-09-21 20:29:15 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (23.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (25.4ms)
+  [1m[36mUser Load (20.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 100ms (Views: 55.0ms | ActiveRecord: 44.0ms)
+
+
+Started GET "/bands/" for ::1 at 2021-09-21 20:31:01 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (15.3ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (18.4ms)
+  [1m[36mUser Load (8.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 98ms (Views: 72.5ms | ActiveRecord: 23.7ms)
+
+
+Started GET "/bands/6" for ::1 at 2021-09-21 20:31:09 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (18.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 50ms (Views: 29.6ms | ActiveRecord: 19.1ms)
+
+
+Started GET "/bands/" for ::1 at 2021-09-21 20:33:33 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (7.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (61.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 130ms (Views: 55.0ms | ActiveRecord: 68.9ms)
+
+
+Started GET "/bands/new" for ::1 at 2021-09-21 20:33:35 -0400
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/new.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 40ms (Views: 39.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/bands/new" for ::1 at 2021-09-21 20:34:53 -0400
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/new.html.erb within layouts/application (1.7ms)
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 140ms (Views: 135.8ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/bands/new" for ::1 at 2021-09-21 20:34:53 -0400
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/new.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (26.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 85ms (Views: 57.8ms | ActiveRecord: 26.2ms)
+
+
+Started GET "/bands/new" for ::1 at 2021-09-21 20:34:56 -0400
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/new.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 35ms (Views: 30.7ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/bands" for ::1 at 2021-09-21 20:35:30 -0400
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"kzTFU0AaeuxPjW8gk8MHhuFxE/XccltUPBbEuDF0fszhNYKgzAwXZEoNRmS66fRj4uww5Z+xcaZJSd5G9f7otg==", "band"=>{"name"=>"Incubus"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:14
+  [1m[36mBand Create (0.8ms)[0m  [1m[32mINSERT INTO "bands" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Incubus"], ["created_at", "2021-09-22 00:35:30.946742"], ["updated_at", "2021-09-22 00:35:30.946742"]]
+  ↳ app/controllers/bands_controller.rb:14
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:14
+Redirected to http://localhost:3000/bands
+Completed 302 Found in 8ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 20:35:30 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (19.0ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (21.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 54ms (Views: 34.2ms | ActiveRecord: 19.4ms)
+
+
+Started GET "/bands/7" for ::1 at 2021-09-21 20:35:36 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mBand Load (7.1ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 49ms (Views: 39.7ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 20:35:37 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (17.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (20.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 57ms (Views: 38.2ms | ActiveRecord: 18.1ms)
+
+
+Started GET "/bands/5" for ::1 at 2021-09-21 20:35:39 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBand Load (2.5ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 46ms (Views: 35.5ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 20:35:40 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (3.1ms)
+  [1m[36mUser Load (8.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 49ms (Views: 38.5ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/bands/7" for ::1 at 2021-09-21 20:35:42 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (22.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 50ms (Views: 25.4ms | ActiveRecord: 23.2ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 20:35:43 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (16.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 49ms (Views: 31.9ms | ActiveRecord: 16.5ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 20:40:59 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (35.2ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (68.8ms)
+Completed 500 Internal Server Error in 105ms (ActiveRecord: 51.6ms)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"show", :controller=>"bands", :id=>nil}, missing required keys: [:id]:
+  app/views/bands/index.html.erb:5:in `block in _app_views_bands_index_html_erb___2865842091381280298_70196269289900'
+  app/views/bands/index.html.erb:4:in `_app_views_bands_index_html_erb___2865842091381280298_70196269289900'
+  app/controllers/bands_controller.rb:4:in `index'
+
+Started POST "/__better_errors/f231e06d5fff5052/variables" for ::1 at 2021-09-21 20:40:59 -0400
+Started GET "/bands" for ::1 at 2021-09-21 20:41:53 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (5.2ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (10.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 151ms (Views: 114.9ms | ActiveRecord: 35.4ms)
+
+
+Started GET "/bands/1" for ::1 at 2021-09-21 20:42:00 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (17.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 50ms (Views: 31.0ms | ActiveRecord: 17.5ms)
+
+
+Started GET "/bands/1" for ::1 at 2021-09-21 20:42:15 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (16.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 49ms (Views: 30.5ms | ActiveRecord: 17.0ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 20:43:23 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (25.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (28.6ms)
+  [1m[36mUser Load (17.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 95ms (Views: 51.1ms | ActiveRecord: 43.2ms)
+
+
+Started GET "/bands/1?_method=delete" for ::1 at 2021-09-21 20:43:24 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 33ms (Views: 30.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 20:43:46 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (18.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (22.8ms)
+  [1m[36mUser Load (19.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 121ms (Views: 82.2ms | ActiveRecord: 38.3ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 20:43:48 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (21.3ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (23.6ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 56ms (Views: 33.2ms | ActiveRecord: 22.3ms)
+
+
+Started GET "/bands/1?_method=delete" for ::1 at 2021-09-21 20:44:08 -0400
+Started GET "/bands/1?_method=delete" for ::1 at 2021-09-21 20:44:08 -0400
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mpoumpou/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mpoumpou/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by BandsController#show as HTML
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (1.4ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBand Load (1.3ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (2.3ms)
+  Rendered bands/show.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 601ms (Views: 523.3ms | ActiveRecord: 50.3ms)
+
+
+Completed 200 OK in 595ms (Views: 534.1ms | ActiveRecord: 15.7ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 20:44:51 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (19.0ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (32.6ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 94ms (Views: 41.9ms | ActiveRecord: 49.3ms)
+
+
+Started GET "/bands/1?_method=delete" for ::1 at 2021-09-21 20:44:53 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (24.2ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (12.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 77ms (Views: 38.2ms | ActiveRecord: 36.3ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 20:44:54 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (1.1ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (3.9ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 49ms (Views: 46.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 20:46:42 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (16.2ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (70.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 136ms (Views: 47.4ms | ActiveRecord: 84.3ms)
+
+
+Started GET "/bands/1?_method=delete" for ::1 at 2021-09-21 20:46:43 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 55ms (Views: 50.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/bands/1" for ::1 at 2021-09-21 20:46:45 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (8.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 40ms (Views: 29.9ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/bands/1" for ::1 at 2021-09-21 20:46:47 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 39ms (Views: 33.8ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/bands/1" for ::1 at 2021-09-21 20:47:43 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (41.5ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 110ms (Views: 62.6ms | ActiveRecord: 42.1ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 20:47:48 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (3.2ms)
+  [1m[36mUser Load (12.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 50ms (Views: 36.2ms | ActiveRecord: 12.6ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 20:53:56 -0400
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mpoumpou/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (1.1ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (18.8ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 239ms (Views: 215.9ms | ActiveRecord: 14.0ms)
+
+
+Started GET "/bands/6" for ::1 at 2021-09-21 20:54:00 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 41ms (Views: 34.8ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/bands/6" for ::1 at 2021-09-21 20:54:01 -0400
+Processing by BandsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"<%= form_authenticity_token %>", "id"=>"6"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/c3c7f31141784bcf/variables" for ::1 at 2021-09-21 20:54:01 -0400
+Started DELETE "/bands/6" for ::1 at 2021-09-21 20:54:48 -0400
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mpoumpou/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by BandsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"<%= form_authenticity_token %>", "id"=>"6"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/34cc43fed6dc3e53/variables" for ::1 at 2021-09-21 20:54:48 -0400
+Started GET "/bands" for ::1 at 2021-09-21 20:54:57 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (1.2ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (26.8ms)
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 412ms (Views: 348.6ms | ActiveRecord: 40.0ms)
+
+
+Started GET "/bands/1" for ::1 at 2021-09-21 20:55:01 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (29.1ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (18.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 84ms (Views: 31.5ms | ActiveRecord: 47.5ms)
+
+
+Started DELETE "/bands/1" for ::1 at 2021-09-21 20:55:02 -0400
+Processing by BandsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"<%= form_authenticity_token %>", "id"=>"1"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/6f48d04e52719d71/variables" for ::1 at 2021-09-21 20:55:02 -0400
+Started DELETE "/bands/1" for ::1 at 2021-09-21 20:55:40 -0400
+Processing by BandsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"<%= form_authenticity_token %>", "id"=>"1"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/71bda8f3772d7cef/variables" for ::1 at 2021-09-21 20:55:40 -0400
+Started DELETE "/bands/1" for ::1 at 2021-09-21 20:56:07 -0400
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mpoumpou/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by BandsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"<%= form_authenticity_token %>", "id"=>"1"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/8f7cf6932cc97321/variables" for ::1 at 2021-09-21 20:56:08 -0400
+Started GET "/bands" for ::1 at 2021-09-21 20:56:51 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (37.2ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (67.2ms)
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 412ms (Views: 313.7ms | ActiveRecord: 68.3ms)
+
+
+Started GET "/bands/1" for ::1 at 2021-09-21 20:57:14 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mpoumpou/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (1.2ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (4.3ms)
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 483ms (Views: 354.6ms | ActiveRecord: 108.9ms)
+
+
+Started DELETE "/bands/1" for ::1 at 2021-09-21 20:57:16 -0400
+Processing by BandsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"7wMm7rlXxkfrJVIe8l8wCxqrcAMf2t1ImS5/FQdPwJqdAmEdNUGrz+6le1rbdcPuGTZTE1wZ97rscWXrw8VW4A==", "id"=>"1"}
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:27
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:28
+  [1m[36mBand Destroy (0.5ms)[0m  [1m[31mDELETE FROM "bands" WHERE "bands"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/bands_controller.rb:28
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:28
+Redirected to http://localhost:3000/bands
+Completed 302 Found in 7ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 20:57:16 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (12.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (14.9ms)
+  [1m[36mUser Load (30.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 83ms (Views: 39.9ms | ActiveRecord: 42.9ms)
+
+
+Started GET "/bands/2" for ::1 at 2021-09-21 20:57:18 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 56ms (Views: 53.3ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/bands/2" for ::1 at 2021-09-21 20:57:18 -0400
+Processing by BandsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qgMSdiDetzCBYyeNsh1Dx9ziwQfPVUNMgDVS+CKASWHYAlWFrMjauITjDsmbN7Ai33/iF4yWab71akgG5grfGw==", "id"=>"2"}
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:27
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:28
+  [1m[36mBand Destroy (0.7ms)[0m  [1m[31mDELETE FROM "bands" WHERE "bands"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/bands_controller.rb:28
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:28
+Redirected to http://localhost:3000/bands
+Completed 302 Found in 6ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 20:57:18 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (22.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (25.5ms)
+  [1m[36mUser Load (25.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 88ms (Views: 39.2ms | ActiveRecord: 48.3ms)
+
+
+Started GET "/bands/3" for ::1 at 2021-09-21 20:57:19 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (8.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 51ms (Views: 38.2ms | ActiveRecord: 9.1ms)
+
+
+Started DELETE "/bands/3" for ::1 at 2021-09-21 20:57:20 -0400
+Processing by BandsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"+lE/zqkvEEGOoQ1p4Jq15De9Dv4zVqLn+gUQyBqjfeGIUHg9JTl9yYshJC3JsEYBNCAt7nCViBWPWgo23inrmw==", "id"=>"3"}
+  [1m[36mBand Load (2.2ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:27
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:28
+  [1m[36mBand Destroy (1.7ms)[0m  [1m[31mDELETE FROM "bands" WHERE "bands"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/bands_controller.rb:28
+  [1m[35m (8.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:28
+Redirected to http://localhost:3000/bands
+Completed 302 Found in 23ms (ActiveRecord: 13.2ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 20:57:20 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (31.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (34.9ms)
+  [1m[36mUser Load (13.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 100ms (Views: 52.8ms | ActiveRecord: 45.8ms)
+
+
+Started GET "/bands/4" for ::1 at 2021-09-21 20:57:21 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 48ms (Views: 44.0ms | ActiveRecord: 2.1ms)
+
+
+Started DELETE "/bands/4" for ::1 at 2021-09-21 20:57:22 -0400
+Processing by BandsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"5RDWfbvRz69wCIroyZ8n+ynLVKb4CMsMfarchIqjPOKXEZGON8eiJ3WIo6zgtdQeKlZ3trvL4f4I9cZ6TimqmA==", "id"=>"4"}
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:27
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:28
+  [1m[36mBand Destroy (0.5ms)[0m  [1m[31mDELETE FROM "bands" WHERE "bands"."id" = $1[0m  [["id", 4]]
+  ↳ app/controllers/bands_controller.rb:28
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:28
+Redirected to http://localhost:3000/bands
+Completed 302 Found in 7ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 20:57:22 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (18.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (21.1ms)
+  [1m[36mUser Load (18.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 95ms (Views: 57.5ms | ActiveRecord: 36.9ms)
+
+
+Started GET "/bands/new" for ::1 at 2021-09-21 20:57:26 -0400
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/new.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (13.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 50ms (Views: 35.8ms | ActiveRecord: 13.5ms)
+
+
+Started POST "/bands" for ::1 at 2021-09-21 20:57:35 -0400
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"Tq2tgVs+UBWNpYaVpxVdjIKn4kdfOA/bHv/6B9MQLek8rOpy1yg9nYglr9GOP65pgTrBVxz7JSlroOD5F5q7kw==", "band"=>{"name"=>"Cage The Elephant"}}
+  [1m[35m (1.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:14
+  [1m[36mBand Create (3.1ms)[0m  [1m[32mINSERT INTO "bands" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Cage The Elephant"], ["created_at", "2021-09-22 00:57:35.664635"], ["updated_at", "2021-09-22 00:57:35.664635"]]
+  ↳ app/controllers/bands_controller.rb:14
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:14
+Redirected to http://localhost:3000/bands
+Completed 302 Found in 13ms (ActiveRecord: 5.8ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 20:57:35 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (2.2ms)
+  [1m[36mUser Load (18.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 50ms (Views: 29.7ms | ActiveRecord: 19.5ms)
+
+
+Started GET "/bands/8" for ::1 at 2021-09-21 20:57:37 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (15.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 50ms (Views: 32.7ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 20:57:39 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (31.1ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (33.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 67ms (Views: 34.8ms | ActiveRecord: 31.5ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 21:10:59 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (6.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (25.7ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 91ms (Views: 61.8ms | ActiveRecord: 24.9ms)
+
+
+Started GET "/bands/5" for ::1 at 2021-09-21 21:11:04 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 38ms (Views: 34.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 21:11:40 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (2.5ms)
+  [1m[36mUser Load (13.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 51ms (Views: 37.1ms | ActiveRecord: 13.4ms)
+
+
+Started GET "/bands/5/edit" for ::1 at 2021-09-21 21:11:41 -0400
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/edit.html.erb within layouts/application (18.5ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `name' for nil:NilClass:
+  app/views/bands/edit.html.erb:7:in `_app_views_bands_edit_html_erb___1896957148038879072_70351642283620'
+  app/controllers/bands_controller.rb:33:in `edit'
+
+Started POST "/__better_errors/27c7730958a57ee0/variables" for ::1 at 2021-09-21 21:11:42 -0400
+Started GET "/bands/5/edit" for ::1 at 2021-09-21 21:13:22 -0400
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/edit.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 88ms (Views: 44.9ms | ActiveRecord: 31.7ms)
+
+
+Started PATCH "/bands" for ::1 at 2021-09-21 21:13:49 -0400
+  
+ActionController::RoutingError (No route matches [PATCH] "/bands"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started PATCH "/bands" for ::1 at 2021-09-21 21:15:25 -0400
+  
+ActionController::RoutingError (No route matches [PATCH] "/bands"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started PATCH "/bands" for ::1 at 2021-09-21 21:15:49 -0400
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mpoumpou/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (No route matches [PATCH] "/bands"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/bands" for ::1 at 2021-09-21 21:17:14 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (1.1ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (53.3ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 367ms (Views: 316.0ms | ActiveRecord: 46.4ms)
+
+
+Started GET "/bands/5/edit" for ::1 at 2021-09-21 21:17:18 -0400
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/edit.html.erb within layouts/application (5.4ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"show", :controller=>"bands", :id=>nil}, missing required keys: [:id]:
+  app/views/bands/edit.html.erb:3:in `_app_views_bands_edit_html_erb___3266831095684704321_70239801268440'
+  app/controllers/bands_controller.rb:34:in `edit'
+
+Started POST "/__better_errors/6ccc696bcce6d01c/variables" for ::1 at 2021-09-21 21:17:18 -0400
+Started GET "/bands" for ::1 at 2021-09-21 21:18:39 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (19.0ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (22.0ms)
+  [1m[36mUser Load (17.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 98ms (Views: 60.6ms | ActiveRecord: 36.5ms)
+
+
+Started GET "/bands/5/edit" for ::1 at 2021-09-21 21:18:41 -0400
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/edit.html.erb within layouts/application (6.7ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"show", :controller=>"bands", :id=>nil}, missing required keys: [:id]:
+  app/views/bands/edit.html.erb:3:in `_app_views_bands_edit_html_erb___3266831095684704321_70239758815800'
+  app/controllers/bands_controller.rb:34:in `edit'
+
+Started POST "/__better_errors/de1ebd908156c800/variables" for ::1 at 2021-09-21 21:18:41 -0400
+Started GET "/bands" for ::1 at 2021-09-21 21:19:48 -0400
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mpoumpou/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (65.5ms)
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 369ms (Views: 309.5ms | ActiveRecord: 49.0ms)
+
+
+Started GET "/bands/5" for ::1 at 2021-09-21 21:19:51 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (12.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 49ms (Views: 34.1ms | ActiveRecord: 12.4ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 21:19:53 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (3.7ms)
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 49ms (Views: 40.9ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/bands/5/edit" for ::1 at 2021-09-21 21:19:54 -0400
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/edit.html.erb within layouts/application (10.0ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"show", :controller=>"bands", :id=>nil}, missing required keys: [:id]:
+  app/views/bands/edit.html.erb:3:in `_app_views_bands_edit_html_erb___2444260464510875786_70279711897740'
+  app/controllers/bands_controller.rb:34:in `edit'
+
+Started POST "/__better_errors/3d5591293d550484/variables" for ::1 at 2021-09-21 21:19:54 -0400
+Started GET "/bands/5/edit" for ::1 at 2021-09-21 21:20:20 -0400
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/edit.html.erb within layouts/application (5.8ms)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"show", :controller=>"bands", :id=>nil}, missing required keys: [:id]:
+  app/views/bands/edit.html.erb:3:in `_app_views_bands_edit_html_erb___2444260464510875786_70279657044980'
+  app/controllers/bands_controller.rb:33:in `edit'
+
+Started POST "/__better_errors/ffc12f859ce67d78/variables" for ::1 at 2021-09-21 21:20:20 -0400
+Started GET "/bands/5/edit" for ::1 at 2021-09-21 21:21:24 -0400
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/edit.html.erb within layouts/application (12.9ms)
+Completed 500 Internal Server Error in 69ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"show", :controller=>"bands", :id=>nil}, missing required keys: [:id]:
+  app/views/bands/edit.html.erb:3:in `_app_views_bands_edit_html_erb___2444260464510875786_70279711914900'
+  app/controllers/bands_controller.rb:33:in `edit'
+
+Started POST "/__better_errors/4b238bc4da8821ea/variables" for ::1 at 2021-09-21 21:21:24 -0400
+Started GET "/bands/5/edit" for ::1 at 2021-09-21 21:21:51 -0400
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/edit.html.erb within layouts/application (5.8ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"show", :controller=>"bands", :id=>nil}, missing required keys: [:id]:
+  app/views/bands/edit.html.erb:3:in `_app_views_bands_edit_html_erb___2444260464510875786_70279712276340'
+  app/controllers/bands_controller.rb:33:in `edit'
+
+Started POST "/__better_errors/2ccf50c9663fcbd7/variables" for ::1 at 2021-09-21 21:21:52 -0400
+Started GET "/bands/5/edit" for ::1 at 2021-09-21 21:21:53 -0400
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/edit.html.erb within layouts/application (5.9ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"show", :controller=>"bands", :id=>nil}, missing required keys: [:id]:
+  app/views/bands/edit.html.erb:3:in `_app_views_bands_edit_html_erb___2444260464510875786_70279658263680'
+  app/controllers/bands_controller.rb:33:in `edit'
+
+Started POST "/__better_errors/ca39a8fd1a68b6e6/variables" for ::1 at 2021-09-21 21:21:53 -0400
+Started GET "/bands/5/edit" for ::1 at 2021-09-21 21:23:34 -0400
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/edit.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 89ms (Views: 42.5ms | ActiveRecord: 31.3ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 21:23:50 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (3.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 54ms (Views: 51.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/bands/5/edit" for ::1 at 2021-09-21 21:23:51 -0400
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/edit.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 34ms (Views: 30.4ms | ActiveRecord: 3.0ms)
+
+
+Started PATCH "/bands/5" for ::1 at 2021-09-21 21:25:06 -0400
+Processing by BandsController#update as HTML
+  Parameters: {"authenticity_token"=>"hWoD0YZ2EBxbo2K5x5at1IrL3DUe8Pxav/iYT4oKebX3a0QiCmB9lF4jS/3uvF4xiVb/JV0z1qjKp4KxToDvzw==", "band"=>{"name"=>"Queen"}, "id"=>"5"}
+  [1m[36mBand Load (1.0ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:38
+  [1m[35m (25.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:40
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:40
+Redirected to http://localhost:3000/bands/5
+Completed 302 Found in 31ms (ActiveRecord: 27.1ms)
+
+
+Started GET "/bands/5" for ::1 at 2021-09-21 21:25:06 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (7.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 43ms (Views: 33.1ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 21:25:12 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (2.7ms)
+  [1m[36mUser Load (17.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 51ms (Views: 32.0ms | ActiveRecord: 17.8ms)
+
+
+Started GET "/bands/5/edit" for ::1 at 2021-09-21 21:28:30 -0400
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:33
+Completed 404 Not Found in 46ms (ActiveRecord: 38.7ms)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find Band with 'id'={:id=>"5"}:
+  app/controllers/bands_controller.rb:33:in `edit'
+
+Started POST "/__better_errors/e90d80df69becc75/variables" for ::1 at 2021-09-21 21:28:30 -0400
+Started GET "/bands/5/edit" for ::1 at 2021-09-21 21:28:50 -0400
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBand Load (3.0ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:33
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/edit.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 82ms (Views: 47.0ms | ActiveRecord: 26.3ms)
+
+
+Started PATCH "/bands/5" for ::1 at 2021-09-21 21:29:00 -0400
+Processing by BandsController#update as HTML
+  Parameters: {"authenticity_token"=>"RMMuG4PggzXBcmnlRqtYWeMjWUi5vGW+8OcojZYwtsQ2wmnoD/buvcTyQKFvgau84L56WPp/T0yFuDJzUrogvg==", "band"=>{"name"=>"Queen"}, "id"=>"5"}
+  [1m[36mBand Load (1.0ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:38
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:40
+  [1m[36mBand Update (1.4ms)[0m  [1m[33mUPDATE "bands" SET "name" = $1, "updated_at" = $2 WHERE "bands"."id" = $3[0m  [["name", "Queen"], ["updated_at", "2021-09-22 01:29:00.030088"], ["id", 5]]
+  ↳ app/controllers/bands_controller.rb:40
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:40
+Redirected to http://localhost:3000/bands/5
+Completed 302 Found in 20ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/bands/5" for ::1 at 2021-09-21 21:29:00 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (17.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 51ms (Views: 31.2ms | ActiveRecord: 18.3ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 21:29:03 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (2.4ms)
+  [1m[36mUser Load (11.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 50ms (Views: 36.9ms | ActiveRecord: 12.5ms)
+
+
+Started GET "/bands/new" for ::1 at 2021-09-21 21:29:03 -0400
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/new.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (11.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 51ms (Views: 39.1ms | ActiveRecord: 11.3ms)
+
+
+Started POST "/bands" for ::1 at 2021-09-21 21:29:08 -0400
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"8h9g8M4vEGBVgZeau5USJMZNX43Sr0jJExGtuIszxG2AHicDQjl96FABvt6Sv+HBxdB8nZFsYjtmTrdGT7lSFw==", "band"=>{"name"=>"Nirvana"}}
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:14
+  [1m[36mBand Create (1.6ms)[0m  [1m[32mINSERT INTO "bands" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Nirvana"], ["created_at", "2021-09-22 01:29:08.224165"], ["updated_at", "2021-09-22 01:29:08.224165"]]
+  ↳ app/controllers/bands_controller.rb:14
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:14
+Redirected to http://localhost:3000/bands
+Completed 302 Found in 7ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 21:29:08 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (14.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (17.5ms)
+  [1m[36mUser Load (23.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 84ms (Views: 45.0ms | ActiveRecord: 38.3ms)
+
+
+Started GET "/bands/9" for ::1 at 2021-09-21 21:29:13 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (10.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 50ms (Views: 37.5ms | ActiveRecord: 11.3ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 21:29:16 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (21.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (24.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 65ms (Views: 42.4ms | ActiveRecord: 22.1ms)
+
+
+Started GET "/bands/6/edit" for ::1 at 2021-09-21 21:32:19 -0400
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:33
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/edit.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 59ms (Views: 55.9ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/bands/6" for ::1 at 2021-09-21 21:32:21 -0400
+Processing by BandsController#update as HTML
+  Parameters: {"band"=>{"name"=>"Coldplay"}, "id"=>"6"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/091f91b31a74429e/variables" for ::1 at 2021-09-21 21:32:21 -0400
+Started PATCH "/bands/6" for ::1 at 2021-09-21 21:32:30 -0400
+Processing by BandsController#update as HTML
+  Parameters: {"band"=>{"name"=>"Coldplay"}, "id"=>"6"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/dd11375204f9d6df/variables" for ::1 at 2021-09-21 21:32:30 -0400
+Started PATCH "/bands/6" for ::1 at 2021-09-21 21:32:33 -0400
+Processing by BandsController#update as HTML
+  Parameters: {"band"=>{"name"=>"Coldplay"}, "id"=>"6"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/be76130b36341a46/variables" for ::1 at 2021-09-21 21:32:34 -0400
+Started PATCH "/bands/6" for ::1 at 2021-09-21 21:32:54 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mpoumpou/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by BandsController#update as HTML
+  Parameters: {"band"=>{"name"=>"Coldplay"}, "id"=>"6"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/bbd6ed0ee7ed4f4b/variables" for ::1 at 2021-09-21 21:32:54 -0400
+Started PATCH "/bands/6" for ::1 at 2021-09-21 21:33:06 -0400
+Processing by BandsController#update as HTML
+  Parameters: {"band"=>{"name"=>"Coldplay"}, "id"=>"6"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/832769503c3de8f5/variables" for ::1 at 2021-09-21 21:33:06 -0400
+Started GET "/bands" for ::1 at 2021-09-21 21:33:11 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (53.3ms)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 401ms (Views: 321.0ms | ActiveRecord: 67.1ms)
+
+
+Started GET "/bands/6/edit" for ::1 at 2021-09-21 21:33:15 -0400
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:33
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/edit.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 37ms (Views: 33.3ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/bands/6" for ::1 at 2021-09-21 21:33:16 -0400
+Processing by BandsController#update as HTML
+  Parameters: {"authenticity_token"=>"XMzLP5iCGR0aTZkCU6lNQIhBzwUhIy13JiujoFou5zAuzYzMFJR0lR/NsEZ6g76li9zsFWLgB4VTdLlenqRxSg==", "band"=>{"name"=>"Coldplay"}, "id"=>"6"}
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:38
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:40
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:40
+Redirected to http://localhost:3000/bands/6
+Completed 302 Found in 6ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/bands/6" for ::1 at 2021-09-21 21:33:16 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (11.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 88ms (Views: 74.1ms | ActiveRecord: 11.7ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 21:33:20 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (10.2ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (14.0ms)
+  [1m[36mUser Load (19.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 80ms (Views: 49.2ms | ActiveRecord: 29.6ms)
+
+
+Started GET "/bands/6/edit" for ::1 at 2021-09-21 21:33:23 -0400
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:33
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/edit.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 50ms (Views: 46.2ms | ActiveRecord: 1.1ms)
+
+
+Started PATCH "/bands/6" for ::1 at 2021-09-21 21:33:28 -0400
+Processing by BandsController#update as HTML
+  Parameters: {"authenticity_token"=>"KDQtk6oo0NugjtWj6Bnh6WbNdJi3YMhfoHhXQ+7Sr9xaNWpgJj69U6UO/OfBMxIMZVBXiPSj4q3VJ029Klg5pg==", "band"=>{"name"=>"ColdPlay"}, "id"=>"6"}
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:38
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:40
+  [1m[36mBand Update (1.2ms)[0m  [1m[33mUPDATE "bands" SET "name" = $1, "updated_at" = $2 WHERE "bands"."id" = $3[0m  [["name", "ColdPlay"], ["updated_at", "2021-09-22 01:33:28.959710"], ["id", 6]]
+  ↳ app/controllers/bands_controller.rb:40
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:40
+Redirected to http://localhost:3000/bands/6
+Completed 302 Found in 9ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/bands/6" for ::1 at 2021-09-21 21:33:28 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 35ms (Views: 31.2ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 21:33:34 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (1.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (4.2ms)
+  [1m[36mUser Load (11.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 50ms (Views: 37.0ms | ActiveRecord: 12.5ms)
+
+
+Started GET "/bands/7/edit" for ::1 at 2021-09-21 21:33:35 -0400
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:33
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/edit.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (10.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 50ms (Views: 38.3ms | ActiveRecord: 10.6ms)
+
+
+Started PATCH "/bands/7" for ::1 at 2021-09-21 21:33:43 -0400
+Processing by BandsController#update as HTML
+  Parameters: {"authenticity_token"=>"MkQgzpELFVI8L0ZpaUShVQNSiuWW9LaJtgBXCFVbWLtARWc9HR142jmvby1AblKwAM+p9dU3nHvDX032kdHOwQ==", "band"=>{"name"=>"Incubus"}, "id"=>"7"}
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:40
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:40
+Redirected to http://localhost:3000/bands/7
+Completed 302 Found in 5ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/bands/7" for ::1 at 2021-09-21 21:33:43 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (16.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 49ms (Views: 31.0ms | ActiveRecord: 16.8ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 21:33:44 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (15.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 49ms (Views: 33.4ms | ActiveRecord: 15.5ms)
+
+
+Started GET "/bands/6/edit" for ::1 at 2021-09-21 21:33:51 -0400
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mBand Load (1.1ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:33
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/edit.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 37ms (Views: 33.6ms | ActiveRecord: 1.5ms)
+
+
+Started PATCH "/bands/6" for ::1 at 2021-09-21 21:33:56 -0400
+Processing by BandsController#update as HTML
+  Parameters: {"authenticity_token"=>"TB11SY4cOilbMnQyCL/PhX64etCB5Z/wkoilO9j3bIo+HDK6AgpXoV6yXXYhlTxgfSVZwMImtQLn17/FHH368A==", "band"=>{"name"=>"Coldplay"}, "id"=>"6"}
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:40
+  [1m[36mBand Update (0.6ms)[0m  [1m[33mUPDATE "bands" SET "name" = $1, "updated_at" = $2 WHERE "bands"."id" = $3[0m  [["name", "Coldplay"], ["updated_at", "2021-09-22 01:33:56.706247"], ["id", 6]]
+  ↳ app/controllers/bands_controller.rb:40
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:40
+Redirected to http://localhost:3000/bands/6
+Completed 302 Found in 6ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/bands/6" for ::1 at 2021-09-21 21:33:56 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mBand Load (3.0ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 37ms (Views: 32.2ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 21:33:58 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (3.1ms)
+  [1m[36mUser Load (14.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 51ms (Views: 35.1ms | ActiveRecord: 15.0ms)
+
+
+Started GET "/bands/8/edit" for ::1 at 2021-09-21 21:34:01 -0400
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mBand Load (1.4ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:33
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/edit.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 35ms (Views: 28.0ms | ActiveRecord: 5.5ms)
+
+
+Started PATCH "/bands/8" for ::1 at 2021-09-21 21:34:05 -0400
+Processing by BandsController#update as HTML
+  Parameters: {"authenticity_token"=>"COhl0CfhvET7Ar8UhsnnbogIht6TlhLbSoMyuCykXW566SIjq/fRzP6CllCv4xSLi5WlztBVOCk/3ChG6C7LFA==", "band"=>{"name"=>"Cage the Elephant"}, "id"=>"8"}
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:38
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:40
+  [1m[36mBand Update (0.7ms)[0m  [1m[33mUPDATE "bands" SET "name" = $1, "updated_at" = $2 WHERE "bands"."id" = $3[0m  [["name", "Cage the Elephant"], ["updated_at", "2021-09-22 01:34:05.908290"], ["id", 8]]
+  ↳ app/controllers/bands_controller.rb:40
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:40
+Redirected to http://localhost:3000/bands/8
+Completed 302 Found in 7ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/bands/8" for ::1 at 2021-09-21 21:34:05 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (5.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 36ms (Views: 29.0ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 21:34:07 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (18.0ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (22.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 55ms (Views: 35.5ms | ActiveRecord: 18.5ms)
+
+
+Started GET "/bands/7/edit" for ::1 at 2021-09-21 21:34:41 -0400
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:33
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/edit.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 80ms (Views: 33.7ms | ActiveRecord: 34.8ms)
+
+
+Started PATCH "/bands/7" for ::1 at 2021-09-21 21:34:46 -0400
+Processing by BandsController#update as HTML
+  Parameters: {"authenticity_token"=>"4SWVTTPyeQ3LM77ozS5y5UQzC2/Zhs+KPk+5ajE9+KGTJNK+v+QUhc6zl6zkBIEAR64of5pF5XhLEKOU9bdu2w==", "band"=>{"name"=>"IncuBus"}, "id"=>"7"}
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:40
+  [1m[36mBand Update (0.7ms)[0m  [1m[33mUPDATE "bands" SET "name" = $1, "updated_at" = $2 WHERE "bands"."id" = $3[0m  [["name", "IncuBus"], ["updated_at", "2021-09-22 01:34:46.805569"], ["id", 7]]
+  ↳ app/controllers/bands_controller.rb:40
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:40
+Redirected to http://localhost:3000/bands/7
+Completed 302 Found in 8ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/bands/7" for ::1 at 2021-09-21 21:34:46 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 35ms (Views: 31.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 21:34:48 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (3.7ms)
+  [1m[36mUser Load (14.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 60ms (Views: 44.9ms | ActiveRecord: 14.6ms)
+
+
+Started GET "/bands/7/edit" for ::1 at 2021-09-21 21:34:51 -0400
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:33
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/edit.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 41ms (Views: 33.7ms | ActiveRecord: 4.2ms)
+
+
+Started PATCH "/bands/7" for ::1 at 2021-09-21 21:34:55 -0400
+Processing by BandsController#update as HTML
+  Parameters: {"authenticity_token"=>"WZi/nHb1DjdVsz879A+k4NsghIxg8nTExgEA2wlP58ormfhv+uNjv1AzFn/dJVcF2L2nnCMxXjazXholzcVxsA==", "band"=>{"name"=>"Incubus"}, "id"=>"7"}
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:40
+  [1m[36mBand Update (1.4ms)[0m  [1m[33mUPDATE "bands" SET "name" = $1, "updated_at" = $2 WHERE "bands"."id" = $3[0m  [["name", "Incubus"], ["updated_at", "2021-09-22 01:34:55.012936"], ["id", 7]]
+  ↳ app/controllers/bands_controller.rb:40
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:40
+Redirected to http://localhost:3000/bands/7
+Completed 302 Found in 8ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/bands/7" for ::1 at 2021-09-21 21:34:55 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 51ms (Views: 46.4ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 21:34:56 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (14.0ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (15.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 51ms (Views: 35.7ms | ActiveRecord: 14.2ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 21:36:20 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (20.2ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (33.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 95ms (Views: 38.1ms | ActiveRecord: 54.0ms)
+
+
+Started GET "/bands/5/edit" for ::1 at 2021-09-21 21:36:22 -0400
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:33
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/edit.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (17.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 48ms (Views: 28.4ms | ActiveRecord: 17.7ms)
+
+
+Started PATCH "/bands/5" for ::1 at 2021-09-21 21:36:24 -0400
+Processing by BandsController#update as HTML
+  Parameters: {"authenticity_token"=>"tWfjDHYri+Wt4JVBAD64q1G3rWKgBgjDQiLvfiCCQ3zHZqT/+j3mbahgvAUpFEtOUiqOcuPFIjE3ffWA5AjVBg==", "band"=>{"name"=>"Queen"}, "id"=>"5"}
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:38
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.3ms)
+
+
+
+ArgumentError - wrong number of arguments (given 0, expected 1):
+  app/controllers/bands_controller.rb:40:in `update'
+
+Started POST "/__better_errors/d21e00c27661f547/variables" for ::1 at 2021-09-21 21:36:24 -0400
+Started PATCH "/bands/5" for ::1 at 2021-09-21 21:38:00 -0400
+Processing by BandsController#update as HTML
+  Parameters: {"authenticity_token"=>"tWfjDHYri+Wt4JVBAD64q1G3rWKgBgjDQiLvfiCCQ3zHZqT/+j3mbahgvAUpFEtOUiqOcuPFIjE3ffWA5AjVBg==", "band"=>{"name"=>"Queen"}, "id"=>"5"}
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:38
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:40
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:40
+Redirected to http://localhost:3000/bands/5
+Completed 302 Found in 51ms (ActiveRecord: 35.8ms)
+
+
+Started GET "/bands/5" for ::1 at 2021-09-21 21:38:00 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:22
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 44ms (Views: 37.4ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-21 21:38:02 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (3.3ms)
+  [1m[36mUser Load (12.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 50ms (Views: 35.6ms | ActiveRecord: 13.4ms)
+
+
